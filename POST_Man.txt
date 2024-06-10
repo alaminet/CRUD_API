@@ -1,0 +1,90 @@
+1. Registration - post
+http://localhost:8000/v1/api/auth/register
+
+header===
+headers: {
+            Authorization: "CAt7p0qqwYALAIY"
+          }
+
+body==
+{
+    "name": "usertwo",
+    "email": "usertwos@mail.com",
+    "password": "123454"
+}
+
+-------
+2. Verify - post
+http://localhost:8000/v1/api/auth/mailverify
+header===
+headers: {
+            Authorization: "CAt7p0qqwYALAIY"
+          }
+body==
+{
+    "email": "usertwos@mail.com",
+    "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJ0d29zQG1haWwuY29tIiwiaWF0IjoxNzE3NTcyNzg5LCJleHAiOjE3MTc1NzMwODl9.k02z_k96RiQ-achqeaKGccT-fqJo7tdbQ8Isl1qxf2s"
+}
+
+-------
+3. Login - post
+http://localhost:8000/v1/api/auth/login
+header===
+headers: {
+            Authorization: "CAt7p0qqwYALAIY"
+          }
+body==
+{
+    "email": "usertwos@mail.com",
+    "password" : "123454"
+}
+
+------
+4. New Task - post
+http://localhost:8000/v1/api/task/newtask
+header===
+headers: {
+            Authorization: "CAt7p0qqwYALAIY"
+          }
+body==
+{
+    "title": "Task two",
+    "details" : "Details two",
+    "taskBy":"user._id",
+    "token":"user.token"
+}
+
+------
+4. Update Task - put
+http://localhost:8000/v1/api/task/taskupdate
+header===
+headers: {
+            Authorization: "CAt7p0qqwYALAIY"
+          }
+body==
+{
+    "taskBy": "user._id",
+    "status" : "todo",
+    "token":"user.token"
+}
+
+5. View Task - get
+header===
+headers: {
+            Authorization: "CAt7p0qqwYALAIY"
+          }
+body==
+{
+    "token":"user.token"
+}
+
+----
+6. Delete Task - Delete
+http://localhost:8000/v1/api/task/taskdelete/:taskBy
+headers: {
+            Authorization: "CAt7p0qqwYALAIY"
+          }
+body==
+{
+    "token":"user.token"
+}
